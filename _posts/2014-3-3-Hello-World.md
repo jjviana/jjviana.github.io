@@ -1,9 +1,10 @@
 ---
 layout: post
-title: You're up and running!
+title: Explaining Deep NLP Models
+published: true
 ---
 
-Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
+In this post, I will describe a technique I have been using at Kunumi to explain the output of Deep Neural Networks trained to solve NLP tasks.
 
 ![_config.yml]({{ site.baseurl }}/images/config.png)
 
