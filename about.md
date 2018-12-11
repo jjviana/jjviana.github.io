@@ -11,4 +11,4 @@ I work at the intersection of Machine Learning and Software Engineering.
 
 ### Contact me
 
-@jjviana on Twitter (DMs are open)
+[@jjviana](https://www.twitter.com/jjviana) on Twitter (DMs are open)
