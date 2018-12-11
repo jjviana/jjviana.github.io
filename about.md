@@ -2,14 +2,13 @@
 layout: page
 title: About
 permalink: /about/
+published: true
 ---
 
-Some information about you!
+CTO @ [Kunumi](https://kunumi.ai)
 
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
+I work at the intersection of Machine Learning and Software Engineering.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+@jjviana on Twitter (DMs are open)
