@@ -5,7 +5,7 @@ permalink: /about/
 published: true
 ---
 
-CTO @ [Kunumi](https://kunumi.ai)
+CTO @ [Kunumi](https://www.kunumi.ai)
 
 I work at the intersection of Machine Learning and Software Engineering.
 
