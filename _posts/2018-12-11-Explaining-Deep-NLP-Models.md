@@ -26,6 +26,14 @@ Neural Networks have been traditionally seen as uninterpretable black-boxes by t
 
 The gradients technique will be the focus of this post. This technique uses the information contained in the gradients generated during the backwards pass of the backpropagation algorithm as a proxy for feature importance. [Even though it does not always yield the most interpretable explanations](CITATION NEEDED) it is straightforward to implement and computationally unexpensive when compared to some of the other methods. 
 
+## Gradient-based model explanations
+
+The backpropagation algorithm used to train modern neural networks has two phases: forward and backward. In the forward phase, the input signal is propagated through the layers of the network until an output layer is reached. A loss function is then used to compute the error between the network output and the ground truth (label).
+
+In supervised learning, this loss function is differentiable and therefore can produce a [gradient](https://www.khanacademy.org/math/multivariable-calculus/multivariable-derivatives/partial-derivative-and-gradient-articles/a/the-gradient), which can be used to correct the weights of the last layer of the neural network in order to make the output closer to the ground truth. Since every signal transformation performed by the neural network during the forward pass is also differentiable, the gradient of the output with regrd to the error can be used to compute a gradient for the last layer, then of the penultimate layer, then of the layer before that and so on until the input signal. These gradients are then used to make a small update to every weight of the neural network.
+![backpropagation.gif]({{site.baseurl}}/_posts/images/backpropagation.gif)
+*Figure 1: illustration of the forward and backward passes. Source: http://www.cnblogs.com/daniel-D/archive/2013/06/03/3116278.html*
+
 
 
 
