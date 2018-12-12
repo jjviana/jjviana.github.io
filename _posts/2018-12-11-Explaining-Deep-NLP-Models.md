@@ -34,6 +34,12 @@ In supervised learning, this loss function is differentiable and therefore can p
 ![backpropagation.gif]({{site.baseurl}}/_posts/images/backpropagation.gif)
 *Figure 1: illustration of the forward and backward passes. Source: http://www.cnblogs.com/daniel-D/archive/2013/06/03/3116278.html*
 
+The gradients of the error w.r.t the input are usually disregarded, as the input is not updated by the backpropagation algorithm as the weights are. However, these gradients still provide some very useful information: **they describe how each signal component in the input would need to change in order to make the network output closer to the label**. The way backpropagation shapes the neural network during training makes it so that "uninteresting" parts of the input signal get less gradient signal than "interesting" ones. Thus, measuring the magnitude of the gradients received by each input feature during a backwards pass w.r.t a specific outpu can be used as aa proxy to how important this feature is to the identification of the label under analysis.
+
+
+
+
+
 
 
 
