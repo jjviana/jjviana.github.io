@@ -58,4 +58,15 @@ Since [their first publication in 2013](https://arxiv.org/abs/1301.3781), word v
 
 Word2Vec is the origial word vector learning technique. There are currently other learning techniques such as [Glove](https://nlp.stanford.edu/projects/glove/) and [FastText](https://fasttext.cc/). All these techniques learn semantically signifficand multi-dimensional word embeddings and therefore are considered equivalent from the point of view of this post.
 
+## Phrase-level representation with word vectors
+
+In NLP one is usually not interested on interpreting individual words. The units of interest are phrases, parahraphs and documents. Therefore, it is neccessary to find a way of combining word vectors into higher-level representations. Many different techniques for solving this particular problem are under development. In this post, we will focus on the most common one which is simply word vector concatenation.
+
+In this technique the phrase representation is constructed by concatenating the word vector representing each word. Word vectors are usually high-dimensional, usually having 300 dimentions or more. We can imagine the word vectors as being piled up on top of one another forming a structure aking to an image:
+
+![word_vector_concatenation.png]({{site.baseurl}}/_posts/images/word_vector_concatenation.png)
+*An example of a phrase represented as a concatenation of word vectors*
+
+Assuming our word vectors have 300 dimentions, the phrase "I hate this film" can be represented as an image of 300x4 "pixels", where each line of the image correspond to a word and each column to a word vector feature. 
+
 
