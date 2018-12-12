@@ -36,7 +36,10 @@ In supervised learning, this loss function is differentiable and therefore can p
 
 The gradients of the error w.r.t the input are usually disregarded, as the input is not updated by the backpropagation algorithm as the weights are. However, these gradients still provide some very useful information: **they describe how each signal component in the input would need to change in order to make the network output closer to the label**. The way backpropagation shapes the neural network during training makes it so that "uninteresting" parts of the input signal get less gradient signal than "interesting" ones. Thus, measuring the magnitude of the gradients received by each input feature during a backwards pass w.r.t a specific outpu can be used as aa proxy to how important this feature is to the identification of the label under analysis.
 
+![explanation_methods.png]({{site.baseurl}}/_posts/images/explanation_methods.png)
+*A compairson of different explanation methods for visual classification. Most of the methods are based on the interpretation of the backpropagation gradients. Source: "Sanity Checks for Saliency Maps" https://arxiv.org/abs/1810.03292*
 
+As the above figure shows, the gradient information by itself seldom generates understandable explanations on images. Some post-processing of these gradients is needed in order to turn them into meaningful salience maps. Nevertheless, they provide some of the best 
 
 
 
