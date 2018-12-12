@@ -49,13 +49,5 @@ Most of the work developed in feature interpretation for Deep Neural Networks us
 
 Natural language documents are sequences of sentences, which in turn are themselves sequences of words that in their turn are sequences of sylabes (n-grams) that can be broken down into individual characteres. A NLP model usually makes some simplification by looking at natural language at a specific zoom level, ignoring the lower-level components. Even though there are NLP models that work at the character or n-gram level, most models work at the word level.  
 
-Word Vectors have become the de-facto way of representing 
-
-
-
-
-
-
-
-
+Once you choose to look at the input word by word, you still need to choose a way to represent each word. There are many ways to do that, but in the Deep Learning community one particular way became the de-facto standard for that task: word vectors. 
 
