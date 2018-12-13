@@ -137,6 +137,12 @@ The algorithm described above assumes that the magnitude of the change in the wo
 The steps 5 and 6 of the algorithm were developed experimentally and corresponding to using the [z-score](CITATION NEEDED) of the word vector magnitude change. I found in practice that using the z-score provides a more interpretable explanation than using the magnitude change itself since the gradient is usually very small.
 
 
+I (-0.965) loved (2.709) this (0.297) film (0.032) , (-0.429) but (-0.183) the (-0.053) main (-0.242) actor (-0.006) sucks (-1.167) . (0.007) 
+
+Ok, this looks much better and intriguing at the same time. We can now see that the network is indeed focusing on the "loved" word and that it wants to see more of it in order to improve the loss. Since we are improving the loss relative to the positive class, we can interpret any word with a positive score as "positive".
+
+We can also see that the word sucks is a "negative" word, since the gradient is aiming to "erase" it (not as much as it wants to enhance the word "love" tough).
+
 
 
 
