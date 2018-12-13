@@ -115,6 +115,30 @@ The main idea we need to keep in mind is that due to the word vector representat
 
 Looking at an individual word vector dimention we see that the gradient applied to it describes a way in which this specific dimension should be transformed in order to minimize the loss function. This transformation can be decomposed in two components: a direction (increase or decrease) and a magnitude. Each individual word vector dimention receives a different gradient and we can imagine the complete gradient information received as specifying a vector transformation that would modify the original word vector in the direction of a "better" word relative to the loss of the chosen class.
 
+![gradient_directions_word.png]({{site.baseurl}}/_posts/images/gradient_directions_word.png)
+
+
+Given all that, we can think about a new way of constructing an explanation based on the gradients:
+
+1. Run a forward pass
+2. Compute the gradient of the loss w.r.t the desired output
+3. Run a backward() pass and collect the gradients of the loss w.r.t the input
+4. For each word vector in the input, compute the magnitude change as follows:
+   4.1 Let W be the original word vector and gradW be the gradient of this vector w.r.t the loss.
+   4.2 Compute Wmod = W-gradW (this is equivalent to a SGD step)
+   4.3 Compute the magnitude change: WChange = norm(W)-norm(Wmod)
+   
+5. Compute the mean (WChangeMean) and variance (WChangeVar) of the magnitude changes for the entire phrase or document.
+6. For each word, compute the word explanation score: WScore=(WChange-WChangeMean)/WChangeVar
+
+
+The algorithm described above assumes that the magnitude of the change in the word vector can be used to capture the direction in which a word would change if SGD used the corresponding gradient to optimize its vector. If the magnitude shrinks we interpret it as the word being "disliked" by the neural network (in the context of the other words present and the desired output). This is simple to understand: if the magnitude shrinks that means there are signifficant dimentions of the word that are being "erased" by the gradient in order to improve the loss function. On the other hand, an increase in magnitude for the word vector means that some dimentions are being enhanced by the gradient, so we interpret that as the word being "liked" by the network.
+
+The steps 5 and 6 of the algorithm were developed experimentally and corresponding to using the [z-score](CITATION NEEDED) of the word vector magnitude change. I found in practice that using the z-score provides a more interpretable explanation than using the magnitude change itself since the gradient is usually very small.
+
+
+
+
 
 
 
