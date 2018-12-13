@@ -81,20 +81,29 @@ Suppose we are creating a neural network for movie sentiment analysis. We train 
 
 "I loved this film, but the main actor sucks."
 
-We get the following prediction from the model:  0.914. Not bad: the model gives it a 91% chance that this is a positive phrase in a movie review, even though the phrase itself contains both positive elements (related to the film) and negative elements (related to the main actor in the film).
+(I know. Ambiguous review. The Matrix , right? )
+
+We get the following prediction from the model:  0.914. 
+
+Not bad: the model gives it a 91% chance that this is a positive phrase in a movie review, even though the phrase itself contains both positive elements (related to the film) and negative elements (related to the main actor in the film).
 
 Why does the model thinks that this is a positive phrase? In order to do that we need to obtain an explanation. Using the gradient method, we will try to explain this phrase as follows:
 
 1. Run a forward() pass on the neural network with this phrase as input
 2. Compute the loss (we would expect the output to be 100% so there is still room for improvement here)
 3. Run a backward() pass and collect the gradients of the loss w.r.t the input
-4. For each word vector in the input, compute the norm of the corresponding gradient vector. This gives is equivalent of computing the amount of gradient received by each input word.
+4. For each word vector in the input, compute the norm of the corresponding gradient vector. This measures the amount of gradient received by each input word.
 5. Since we want to compare one word against another, we normalize each word gradient norm by the maximum gradient norm.
 
 If we do that, we obtain the following:
 
 I (0.525) loved (1.000) this (0.580) movie (0.588) , (0.155) but (0.000) the (0.032) main (0.114) actor (0.196) sucks (0.400) . (0.136)
 
+The number to the right of each word is the (relative) gradient norm received by the corresponding word vector. If we interpret that number as a measure of how much "focus" the neural network is giving to each word, we can see that it is focusing more in the "I loved this movie" part than in the "but the main actor sucks" part, which justifies the 91% positive probability score.
+
+We can also notice that the word "sucks" gets a relatively high amount of focus compared to the other words in the second half of the sentence. Why does that happen?
+
+Useful as the gradient module information is, it does not provide information about how the neural network is interpreting a particular word it is focusing on. But it is possible to get that information if we dig deeper into the meaning of word vector dimentions and how they interact with the gradient.
 
 
 
