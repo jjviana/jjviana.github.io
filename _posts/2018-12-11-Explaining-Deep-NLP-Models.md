@@ -4,7 +4,7 @@ title: Explaining Deep NLP Models
 published: true
 ---
 
-In this post I will describe a technique I have been using at [Kunumi](https://kunumi.ai) to explain the output of Deep Neural Networks trained to solve NLP tasks.
+In this post I will describe a technique I have been developing at [Kunumi](https://kunumi.ai) to explain the output of Deep Neural Networks trained to solve NLP tasks.
 
 Some of the diagrams and part of the Jupyter Notebook examples are based on the [excellent set of tutorials by Ben Trevett](https://github.com/bentrevett/pytorch-sentiment-analysis), released under the MIT license.
 
