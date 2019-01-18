@@ -49,14 +49,14 @@ Most of the work developed in feature interpretation for Deep Neural Networks us
 
 Natural language documents are sequences of sentences, which in turn are themselves sequences of words that in their turn are sequences of syllables (n-grams) that can be broken down into individual characters. An NLP model usually makes some simplification by looking at natural language at a specific zoom level, ignoring the lower-level components. Even though there are NLP models that work at the character or n-gram level, most models work at the word level.  
 
-Once you choose to look at the input word by word, you still need to choose a way to represent each word. There are many ways to do that, but in the Deep Learning community one particular way became the de-facto standard for that task: word vectors.
+Once you choose to look at the input word by word, you still need to choose a way to represent each word. There are many ways to do that but, in the Deep Learning community, one particular way became the de-facto standard for that task: word vectors.
 
-Since [their first publication in 2013](https://arxiv.org/abs/1301.3781), word vectors have taken the Deep Learning world by storm. This representation models each word as a multi-dimentional feature vector. The vector representation for each word is jointly learnt from a large corpus of text in an unsupervised way by a neural network solving an auxiliary prediction task such as phrase completion. After training the original neural network is discarded and only the internal representation it has learnt for each word is kept. It has been demonstrated that this representation contains syntatic and semantic information about each word.
+Since [their first publication in 2013](https://arxiv.org/abs/1301.3781), word vectors have taken the Deep Learning world by storm. This representation model each word as a multi-dimensional feature vector. The vector representation for each word is jointly learned from a large corpus of text in an unsupervised way by a neural network solving an auxiliary prediction task such as phrase completion. After training the original neural network is discarded and only the internal representation it has learned for each word is kept. It has been demonstrated that this representation contains syntatcic and semantic information about each word.
 
 ![linear-relationships.png]({{site.baseurl}}/_posts/images/linear-relationships.png)
 *Word vectors capture semantic information. This can be demonstrated by using them to solve analogy tasks such as: King-Man+Woman=Queen. Source: https://www.tensorflow.org/images/linear-relationships.png*
 
-Word2Vec is the origial word vector learning technique. There are currently other learning techniques such as [Glove](https://nlp.stanford.edu/projects/glove/) and [FastText](https://fasttext.cc/). All these techniques learn semantically signifficand multi-dimensional word embeddings and therefore are considered equivalent from the point of view of this post.
+Word2Vec is the original word vector learning technique. There are currently other learning techniques such as [Glove](https://nlp.stanford.edu/projects/glove/) and [FastText](https://fasttext.cc/). All these techniques learn semantically signifficant multi-dimensional word embeddings and therefore are considered equivalent from the point of view of this post.
 
 ### Phrase-level representation with word vectors
 
