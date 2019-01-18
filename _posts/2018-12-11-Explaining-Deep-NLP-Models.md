@@ -4,21 +4,23 @@ title: Explaining Deep NLP Models
 published: true
 ---
 
-In this post I will describe a technique I have been developing at [Kunumi](https://kunumi.ai) to explain the output of Deep Neural Networks trained to solve NLP tasks.
+In this post I will describe a technique I have been applying at [Kunumi](https://kunumi.ai) to explain the output of Deep Neural Networks trained to solve Natural Language Processing (NLP) problems.
 
-Some of the diagrams and part of the Jupyter Notebook examples are based on the [excellent set of tutorials by Ben Trevett](https://github.com/bentrevett/pytorch-sentiment-analysis), released under the MIT license.
+Some of the diagrams and part of the Jupyter Notebook examples presented here are based on the [excellent set of tutorials by Ben Trevett](https://github.com/bentrevett/pytorch-sentiment-analysis), released under the MIT license.
 
 ## Deep Learning applied to Natural Language Processing
 
-Over the last 5 years, [Deep Learning](https://www.cs.toronto.edu/~hinton/absps/NatureDeepReview.pdf) has become an essential ingredient in [state-of-the-art NLP models](https://www.stateoftheart.ai/?area=Natural%20Language%20Processing). 
+Over the last 5 years, [Deep Learning](https://www.cs.toronto.edu/~hinton/absps/NatureDeepReview.pdf) has become an essential ingredient of [state-of-the-art NLP models](https://www.stateoftheart.ai/?area=Natural%20Language%20Processing). 
 
-[Natural Language Processing (NLP)](https://en.wikipedia.org/wiki/Natural_language_processing) is "... is a subfield of computer science, information engineering, and artificial intelligence concerned with the interactions between computers and human (natural) languages...". In practice, NLP today focuses on creating Machine Learning models capable of understanding specific aspects of text such as sentiment analysis, part-of-speech tagging, named entity recognition, language translation, etc. 
+Wikipedia defines [NLP](https://en.wikipedia.org/wiki/Natural_language_processing) as "...a subfield of computer science, information engineering, and artificial intelligence concerned with the interactions between computers and human (natural) languages...". 
 
-The Deep Learning term refers to the application of Deep Neural Networks usually trained using stochastic gradient descent. The Neural Networks most frequently applied to NLP problems are [Recurrent Neural Network](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) variants (such as LSTM and GRU) and [Convolutional Neural Networks](http://cs231n.github.io/convolutional-networks/). Although RNNs are a natural fit for NLP problems due to their sequential data processing nature, CNNs are increasingly being adopted in the field as they provide essentially the same level of accuracy at a fraction of the processing cost.
+Practically, NLP today focuses on creating Machine Learning models capable of understanding specific aspects of text, such as sentiment analysis, part-of-speech tagging, named entity recognition, language translation, etc. 
+
+"Deep Learning" refers to the application of Deep Neural Networks usually trained using Stochastic Gradient Descent. The Neural Networks most frequently applied to NLP problems are [Recurrent Neural Network](http://karpathy.github.io/2015/05/21/rnn-effectiveness/) (RNN) variants (such as LSTM and GRU) and [Convolutional Neural Networks](http://cs231n.github.io/convolutional-networks/) (CNN). Although RNNs are a natural fit for NLP problems due to their sequential data processing nature, CNNs are increasingly being adopted in the field as they provide essentially the same level of accuracy at a fraction of the processing cost.
 
 ## Interpreting Deep Neural Network outputs
 
-Model interpretation has started to receive a lot of interest over the last couple of years because as models transition from prototyping to production it becomes important to understand and justify the probability distributions generated as the output of these models.
+Over the last couple of years, models transitioned from prototyping to production. Because of that, model interpretation has started to receive a lot of interest due to the importance of understanding and justifying the probability distributions generated as the output of these models.
 
 When talking about model interpretation one usually means to obtain some kind of "explanation" for a particular output of a Machine Learning model. This explanation is usually framed in terms of the input features: one would like to see some "evidence" in the input features that justify the model predictions.
 
