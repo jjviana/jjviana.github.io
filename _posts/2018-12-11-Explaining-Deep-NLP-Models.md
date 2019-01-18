@@ -124,9 +124,13 @@ Given all that, we can think about a new way of constructing an explanation base
 2. Compute the gradient of the loss w.r.t the desired output
 3. Run a backward() pass and collect the gradients of the loss w.r.t the input
 4. For each word vector in the input, compute the magnitude change as follows:
+
     4.1 Let W be the original word vector and gradW be the gradient of this vector w.r.t the loss.
+    
     4.2 Compute Wmod = W-gradW (this is equivalent to a SGD step)
+    
     4.3 Compute the magnitude change: WChange = norm(W)-norm(Wmod)
+    
 5. Compute the mean (WChangeMean) and variance (WChangeVar) of the magnitude changes for the entire phrase or document.
 6. For each word, compute the word explanation score: WScore=(WChange-WChangeMean)/WChangeVar
 
