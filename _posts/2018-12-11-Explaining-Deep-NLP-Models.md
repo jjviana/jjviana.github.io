@@ -131,14 +131,15 @@ Given all that, we can think about a new way of constructing an explanation base
 6. For each word, compute the word explanation score: WScore=(WChange-WChangeMean)/WChangeVar
 
 
-The algorithm described above assumes that the magnitude of the change in the word vector can be used to capture the direction in which a word would change if SGD used the corresponding gradient to optimize its vector. If the magnitude shrinks we interpret it as the word being "disliked" by the neural network (in the context of the other words present and the desired output). This is simple to understand: if the magnitude shrinks that means there are signifficant dimentions of the word that are being "erased" by the gradient in order to improve the loss function. On the other hand, an increase in magnitude for the word vector means that some dimentions are being enhanced by the gradient, so we interpret that as the word being "liked" by the network.
+The algorithm described above assumes that the magnitude of the change in the word vector can be used to capture the direction in which a word would change if SGD used the corresponding gradient to optimize its vector. If the magnitude shrinks we interpret it as the word being "disliked" by the neural network (in the context of the other words present and the desired output). This is simple to understand: if the magnitude shrinks that means there are significant dimensions of the word that are being "erased" by the gradient in order to improve the loss function. On the other hand, an increase in magnitude for the word vector means that some dimensions are being enhanced by the gradient, so we interpret that as the word being "liked" by the network.
 
-The steps 5 and 6 of the algorithm were developed experimentally and corresponding to using the [z-score](CITATION NEEDED) of the word vector magnitude change. I found in practice that using the z-score provides a more interpretable explanation than using the magnitude change itself since the gradient is usually very small.
+The steps 5 and 6 of the algorithm were developed experimentally and corresponding to using the [z-score](https://en.wikipedia.org/wiki/Standard_score) of the word vector magnitude change. I found in practice that using the z-score provides a more interpretable explanation than using the absolute magnitude change because the gradient of a single backward pass is usually very small.
 
+Let's look at our test phrase interpretation using this new method:
 
 I (-0.794) loved (2.460) this (0.736) film (0.274) , (-0.576) but (-0.168) the (-0.143) main (-0.022) actor (-0.457) sucks (-1.448) . (0.138) 
 
-Ok, this looks much better and intriguing at the same time. We can now see that the network is indeed focusing on the "loved" word and that it wants to see more of it in order to improve the loss. Since we are improving the loss relative to the positive class, we can interpret any word with a positive score as "positive".
+This looks much better and at the same time intriguing. We can now see that the network is indeed focusing on the "loved" word and that it wants to see more of it in order to improve the loss. Since we are improving the loss relative to the positive class, we can interpret any word with a positive z-score as "positive".
 
 We can also see that the word sucks is a "negative" word in this context, since the gradient is aiming to "erase" it (not as much as it wants to enhance the word "love" tough).
 
@@ -146,11 +147,11 @@ The intriguing part it the word 'I'. The network seems to dislike it more than a
 
 loved (1.976) this (0.404) film (-0.070) , (-0.273) but (-0.060) the (-0.018) main (0.200) actor (-0.519) sucks (-2.084) . (0.445) : 0.542
 
-Oops. Only 54.2% probability of positive. The network certainly misses some aspects of the word 'I', even though it dislike others. Lets replace it for a different pornoum:
+Oops. Only 54.2% probability of positive. The network certainly misses some aspects of the word 'I', even though it dislike others. Let's try to replace it for a different pronoun:
 
 We (-0.324) loved (2.485) this (0.709) film (0.233) , (-0.642) but (-0.222) the (-0.196) main (-0.072) actor (-0.521) sucks (-1.543) . (0.094) : 0.884
 
-We can see from the word score and output probability that tne model likes 'We' a little better than 'I'. But it still doesnt like something about 'We'. Lets change it for a very different word:
+We can see from the word score and output probability that the model likes 'We' a little better than 'I'. But it still doesn't like something about 'We'. Let's change it for a very different word:
 
 Fans (1.127) loved (2.173) this (0.521) film (0.074) , (-0.742) but (-0.350) the (-0.326) main (-0.210) actor (-0.629) sucks (-1.584) . (-0.055)  : 0.894
 
@@ -160,4 +161,9 @@ Certainly, the best thing we can do to improve the "positiveness" of the phrase 
 
 Fans (1.058) loved (2.279) this (0.433) film (-0.068) , (-0.981) but (-0.622) the (-0.580) main (-0.381) actor (-0.654) . (-0.486) : 0.949
 
-The explanations generated by this method sure seem to be useful for providing human-level understanding to the feature importance generated by this model.
+The explanations generated by this method sure seem to be useful for providing a better human-level understanding of how the input features (words) are being interpreted in the context of this classification problem.
+
+I have successfully applied this technique to different types of classification problems using different types of neural network architectures, with similar results. 
+
+In my next blog post, I will continue to explore this topic and provide further evidence for the validity of this interpretation of gradients by creating an algorithm that can rewrite phrases in a way that moves the model output in the desired direction (positive or negative).
+
