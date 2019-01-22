@@ -47,7 +47,7 @@ As the above figure shows, the gradient information by itself seldom generates u
 
 ## Deep Learning in NLP
 
-Most of the work developed in feature interpretation for Deep Neural Networks using gradient information has been done in the context of processing images. The focus is usually in identifying regions of an input image most relevant for classification in a particular class. In order to understand how these methods need to be adapted to work with textual input, we need to understand first how natural language is usually represented as input to a Deep Neural Network.
+Most of the work developed in feature interpretation for Deep Neural Networks using gradient information has been done in the context of processing images. The focus is usually in identifying regions of an input image most relevant for classification in a particular class. In order to understand how to adapt these methods to work with textual input, we need to understand first how natural language is usually represented as input to a Deep Neural Network.
 
 ### Word Vector Representation
 
