@@ -22,4 +22,12 @@ we get the following feature explanations:
 This (0.202) is (0.569) a (0.262) ridiculous (-3.093) movie (-0.136) and (0.720) you (0.426) should (0.427) never (0.156) see (0.156) it (0.156) . (0.156) 
 ````
 
+From this explanation we see that the word 'ridiculous' has the largest importance by far, and also that is contributes negatively for the sentiment. 
+
+In this technique, the feature importance is derived from the input gradient. Since the gradient can be thought of as describing a transformation in the word vector representing the input word, can we somehow use this information in order to edit the text in a desired direction? 
+
+Suppose we wanted to transform the above review from negative to positive. Surely, we know that we need to change the word 'ridiculous' to a more positive word. We know that because, knowing English, we recognize that 'ridiculous' is an adjective of negative conotation. Which word should we choose to replace it? We would most certainly choose a positive adjective in order to keep the general syntax of the phrase coherent. 
+
+Can we create a procedure to do that automatically, based on the interpretation of the gradient information? It turns out we can.
+
 
