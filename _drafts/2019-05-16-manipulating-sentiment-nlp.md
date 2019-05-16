@@ -31,3 +31,16 @@ Suppose we wanted to transform the above review from negative to positive. Surel
 Can we create a procedure to do that automatically, based on the interpretation of the gradient information? It turns out we can.
 
 
+## The input gradient as a transformation
+
+The backpropagation algorithm used to train Deep Neural Networks relies on gradient information in order to update the neural network parameters. From the point of view of this algorithm, there is nothing special about the neural network input. In fact, backpropagation makes no distinction between the neurons that represent the input data and the neurons of the other layers. The only distinction exists in practice when parameter updates happen: neuron parameters are updated in the direction provided by the gradients, but the input parameters are not. That makes sense: gradient descent can act to change the interpretation of the reality (network weights), but not reality itself.
+
+Now, what does that mean if we would apply gradient descent to the input data? The gradient optimization step of SGD requires us to update parameters as follows:
+
+````
+param = param - lr * grad
+````
+
+Where ``lr`` is a learning rate constant and ``grad`` is the gradient information computed in the backward pass.
+
+Since the input space of these neural networks consist of word vectors, this transformation can be seen as moving the word in the word vector space in a specific direction. 
