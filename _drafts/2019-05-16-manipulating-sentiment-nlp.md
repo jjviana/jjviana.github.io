@@ -44,3 +44,7 @@ param = param - lr * grad
 Where ``lr`` is a learning rate constant and ``grad`` is the gradient information computed in the backward pass.
 
 Since the input space of these neural networks consist of word vectors, this transformation can be seen as moving the word in the word vector space in a specific direction. 
+![ridiculous_wv.png]({{site.baseurl}}/images/ridiculous_wv.png)
+
+<iframe width="806" height="348" src="https://www.youtube.com/embed/pnSy7pnFY0E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
