@@ -47,7 +47,7 @@ Since the input space of these neural networks consists of word vectors, this tr
 ![ridiculous_gradient.png]({{site.baseurl}}/post-images/ridiculous_gradient.png)
 *Visualization courtesy of projector.tensorflow.org*
 
-The above illustration shows a 2D projection of some word vector in the vicinity of the word 'ridiculous'. The original space has 300 dimensions, so this projection is necessarily an approximation. The blue arrow illustrates the direction indicated by the input gradient for the word 'ridiculous'. It is clear that in this case that following the gradient direction will approximate this word vector to the representation of more positive adjectives.
+The above illustration shows a 2D projection of some word vector in the vicinity of the word 'ridiculous'. The original space has 300 dimensions, so this projection is necessarily an approximation. The blue arrow illustrates the direction indicated by the input gradient for the word 'ridiculous'. It is clear that in this case following the gradient direction will approximate this word vector to the representation of more positive adjectives.
 
 The question that remains is how to choose a suitable word to replace this negative adjective since in the real world words are not continuous vectors but discrete features. One possible solution is to find the nearest neighbor of the original word when moving in the direction indicated by the input gradient.
 
