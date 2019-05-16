@@ -77,7 +77,22 @@ In theory, each time a word is replaced according to the above algorithm one wou
 
 You can play with this algorithm yourself by running the notebook. Below are some demonstrations of this algorithm in action:
 
+### Small phrase, neutral to positive
+
 <iframe width="806" height="348" src="https://www.youtube.com/embed/pnSy7pnFY0E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### Small phrase, neutral to negative
+
+<iframe width="806" height="340" src="https://www.youtube.com/embed/g-4wFIjqZbw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### Complete movie review, positive to negative
+
+<iframe width="806" height="344" src="https://www.youtube.com/embed/VvesHwGdL80" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### Complete movie review, negative to positive
+
+<iframe width="806" height="336" src="https://www.youtube.com/embed/Ur6LfII_lRU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 
 ## Future directions
 
