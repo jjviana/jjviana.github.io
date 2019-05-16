@@ -61,7 +61,7 @@ given: phrase to improve (f)
 1. let grads =  gradients for each word in f with regard to target t
 2. let w = the word in f that has the largest importance magnitude in the negative direction
 3. let wvec= word vector representation of w
-4. let wgrad = gradient of word w
+4. let wgrad = gradient of word w with regard to target t
 3. Repeat:
    3.1 let new_vec= wvec - wgrad
    3.2 let new_word = nearest neighbor of new_vec in the vector space
