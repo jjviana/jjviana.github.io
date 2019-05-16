@@ -3,7 +3,7 @@ published: true
 ---
 # Manipulating sentiment using Deep NLP Explanations
 
-In my [last post](CITATION_NEEDED) I described a method for feature importance that can be applied to Deep Neural Networks trained to solve NLP tasks. Today I will show how the featue importance and direction information recovered by this method can be used to guide editing movie reviews in a desired sentiment direction (positive or negative)
+In my [last post](https://jjviana.github.io/Explaining-Deep-NLP-Models/) I described a method for feature importance that can be applied to Deep Neural Networks trained to solve NLP tasks. Today I will show how the featue importance and direction information recovered by this method can be used to guide editing movie reviews in a desired sentiment direction (positive or negative)
 
 ## Defining the goal
 
@@ -82,7 +82,7 @@ You can play with this algorithm yourself by running the notebook. Below are som
 
 ## Future directions
 
-The fact that this sentence transformation heuristic works at all is a further indication of the validity of interpreting input gradients in the way described in my [previous post](CITATION NEEDED). 
+The fact that this sentence transformation heuristic works at all is a further indication of the validity of interpreting input gradients in the way described in my [previous post](https://jjviana.github.io/Explaining-Deep-NLP-Models/). 
 It is indeed possible to generate gradual word-by-word transformations of a phrase or paragraph of text in the desired direction.
 
 However, if you look closely at the sentences generated you will notice that they are not always sintactically or semantically correct. This is only natural, as the heuristic implemented here does not take into account any such linguisic restrictions. 
