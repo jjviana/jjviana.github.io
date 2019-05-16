@@ -1,5 +1,6 @@
 ---
 published: true
+title: Manipulating sentiment in NLP
 ---
 In my [last post](https://jjviana.github.io/Explaining-Deep-NLP-Models/) I described a method for feature importance that can be applied to Deep Neural Networks trained to solve NLP tasks. Today I will show how the featue importance and direction information recovered by this method can be used to guide editing movie reviews in a desired sentiment direction (positive or negative)
 
@@ -86,4 +87,3 @@ It is indeed possible to generate gradual word-by-word transformations of a phra
 However, if you look closely at the sentences generated you will notice that they are not always sintactically or semantically correct. This is only natural, as the heuristic implemented here does not take into account any such linguisic restrictions. 
 
 Would it be possible to combine this technique with a language model (maybe even the powerful [gpt-2 model](https://github.com/openai/gpt-2) ) in order to generate valid sentences that still represent a transformation in the desired direction? Maybe this will be the theme of one of my future posts :).
-
