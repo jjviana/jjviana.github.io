@@ -75,7 +75,7 @@ This algorithm is implemented in my [original collaboratory notebook](https://co
 
 In theory, each time a word is replaced according to the above algorithm one would end up with a new phrase that scores better than before in the desired direction. How well does that work in practice?
 
-You can play with this algorithm by running the notebook. Below are some demonstrations of this algorithm in action:
+You can play with this algorithm by running the [notebook](https://colab.research.google.com/drive/1w2gqazjaS2HGSjxLp3vWvSy3FwKGbAmj). Below are some demonstrations of this algorithm in action:
 
 ### Small phrase, neutral to positive
 
