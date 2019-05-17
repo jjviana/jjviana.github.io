@@ -57,7 +57,9 @@ Putting it all together, we have the following algorithm:
 given: phrase to improve (f)
        neural network that classifies f (m)
        desired classification target (t)
-
+returns: a new phrase (f') constructed by replacing a single
+         word from f so that f' is closer to the target than f
+         
 1. let grads =  gradients for each word in f with regard to target t
 2. let w = the word in f that has the largest importance magnitude in the negative direction
 3. let wvec= word vector representation of w
@@ -67,7 +69,8 @@ given: phrase to improve (f)
    3.2 let new_word = nearest neighbor of new_vec in the vector space
    3.3 if new_word is different from w:
        3.4 exit repeat
-4. return new_word       
+4. let f' = f with the replacement of w by new_word
+5. return f'
 
 ```
 
@@ -102,4 +105,3 @@ It is indeed possible to generate gradual word-by-word transformations of a phra
 However, if you look closely at the sentences generated you will notice that they are not always syntactically or semantically correct. This is only natural, as the heuristic implemented here does not take into account any such linguistic restrictions. 
 
 Would it be possible to combine this technique with a language model (maybe even the powerful [gpt-2 model](https://github.com/openai/gpt-2) ) in order to generate valid sentences that still represent a transformation in the desired direction? Maybe this will be the theme of one of my future posts :).
-
