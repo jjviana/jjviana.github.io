@@ -2,7 +2,7 @@
 published: true
 title: Manipulating sentiment in NLP
 ---
-In my [last post](https://jjviana.github.io/Explaining-Deep-NLP-Models/) I described a method for feature importance that can be applied to Deep Neural Networks trained to solve NLP tasks. Today I will show how the feature importance and direction information recovered by this method can be used to guide editing movie reviews in the desired sentiment direction (positive or negative).
+In my [last post](https://jjviana.github.io/Explaining-Deep-NLP-Models/) I described a method for computing feature importance that can be applied to Deep Neural Networks trained to solve NLP tasks. Today I will show how the magnitude and direction information recovered by this method can be used to guide editing movie reviews in the desired sentiment direction (positive or negative).
 
 ## Defining the goal
 
